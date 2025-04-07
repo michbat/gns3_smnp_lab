@@ -1,0 +1,13 @@
+# /etc/elasticsearch/elasticsearch.yml
+
+
+path.data: {{ elasticsearch_data_path }}
+
+# Repertoire des logs:
+path.logs: {{ elasticsearch_logs_path }}
+
+# Configuration réseau
+network.host: "{{ elasticsearch_network_host }}"
+discovery.seed_hosts: {{ elasticsearch_discovery_seed_hosts }}
+
+xpack.security.enabled: {{ elasticsearch_xpack_security_enabled }}

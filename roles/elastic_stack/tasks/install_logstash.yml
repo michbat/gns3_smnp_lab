@@ -1,0 +1,16 @@
+- name: Install Logstash
+  apt:
+    name: logstash
+    state: latest
+
+- name: Start and enable Logstash
+  service:
+    name: logstash
+    state: started
+    enabled: yes
+
+- name: Deploy sample Logstash config
+  template:
+    src: logstash.conf.j2
+    dest: /etc/logstash/conf.d/beats.conf
+  notify: restart logstash

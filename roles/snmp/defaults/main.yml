@@ -1,0 +1,5 @@
+---
+snmp_community: "public"
+snmp_contact: "michael@michael.com"
+snmp_location: "smnp gns3 lab"
+snmp_agent_address: "udp:161"

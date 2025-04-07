@@ -1,0 +1,6 @@
+---
+- name: Install and configure SNMP on all machines
+  hosts: all
+  become: yes  # Exécuter avec des privilèges sudo
+  roles:
+    - ../roles/snmp

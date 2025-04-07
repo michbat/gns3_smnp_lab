@@ -1,0 +1,10 @@
+input {
+  beats {
+    port => 5044
+  }
+}
+output {
+  elasticsearch {
+    hosts => ["http://{{ elasticsearch_network_host }}:9200"]
+  }
+}

@@ -1,0 +1,25 @@
+- name: Install Filebeat
+  apt:
+    name: filebeat
+    state: latest
+
+- name: Configure Filebeat
+  template:
+    src: filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
+  notify: restart filebeat
+
+- name: Enable system module
+  command: filebeat modules enable system
+
+- name: Setup Filebeat index
+  command: >
+    filebeat setup --index-management
+    -E output.logstash.enabled=false
+    -E 'output.elasticsearch.hosts=["{{ elasticsearch_network_host }}:9200"]'
+
+- name: Start and enable Filebeat
+  service:
+    name: filebeat
+    state: started
+    enabled: yes

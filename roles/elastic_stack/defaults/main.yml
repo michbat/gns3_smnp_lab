@@ -1,0 +1,19 @@
+---
+# Versions et paramètres réseau
+elastic_version: "8.x"
+java_home: "/usr/lib/jvm/java-11-openjdk-amd64"
+
+# Configuration Elasticsearch
+elasticsearch_data_path: /var/lib/elasticsearch
+elasticsearch_logs_path: /var/log/elasticsearch
+elasticsearch_network_host: 0.0.0.0
+elasticsearch_discovery_seed_hosts: []
+elasticsearch_xpack_security_enabled: false
+
+# Configuration Kibana
+kibana_port: 5601
+kibana_host: 0.0.0.0
+
+# Configuration Filebeat
+filebeat_output: logstash
+logstash_host: "localhost:5044"

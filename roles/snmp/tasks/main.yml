@@ -1,0 +1,16 @@
+- name: Install SNMP and SNMPD
+  apt:
+    name:
+      - snmp
+      - snmpd
+    state: present
+
+- name: Configure SNMP
+  template:
+    src: snmpd.conf.j2
+    dest: /etc/snmp/snmpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart snmpd
+

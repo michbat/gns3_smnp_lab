@@ -1,0 +1,15 @@
+---
+- name: Include Java installation
+  include_tasks: install_java.yml
+
+- name: Include Elasticsearch installation
+  include_tasks: install_elasticsearch.yml
+
+- name: Include Kibana installation
+  include_tasks: install_kibana.yml
+
+- name: Include Logstash installation
+  include_tasks: install_logstash.yml
+
+- name: Include Filebeat installation
+  include_tasks: install_filebeat.yml

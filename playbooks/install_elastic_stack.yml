@@ -1,0 +1,5 @@
+---
+- hosts: elk1
+  become: yes
+  roles:
+    - ../roles/elastic_stack

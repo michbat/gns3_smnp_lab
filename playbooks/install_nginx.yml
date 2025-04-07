@@ -1,0 +1,10 @@
+---
+- hosts: nginx
+  become: true
+  vars:
+    nginx_worker_connections: 1024
+    nginx_listen_port: 80
+    nginx_server_name: "snmplab.lan"
+    nginx_web_root: "/var/www/html"
+  roles:
+    - ../roles/nginx  # chemin relatif vers le role nginx

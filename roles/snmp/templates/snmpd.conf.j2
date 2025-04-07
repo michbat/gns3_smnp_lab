@@ -1,0 +1,13 @@
+---
+# snmpd.conf.j2 pour configurer SNMP
+
+# Spécifie l'adresse de l'agent SNMP
+agentAddress {{ snmp_agent_address }}
+
+# Définir la communauté en lecture seule
+rocommunity {{ snmp_community }}
+
+# Définir les informations de contact et l'emplacement
+sysLocation "{{ snmp_location }}"
+sysContact "{{ snmp_contact }}"
+

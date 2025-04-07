@@ -1,0 +1,21 @@
+---
+- name: Update apt cache and install Java
+  apt:
+    update_cache: yes
+    name:
+      - apt-transport-https
+      - openjdk-11-jdk
+    state: present
+
+- name: Set JAVA_HOME
+  lineinfile:
+    path: /etc/environment
+    line: 'JAVA_HOME="{{ java_home }}"'
+    state: present
+    create: yes
+  register: java_env
+  notify: reload environment
+
+- name: Verify Java installation
+  command: java -version
+  ignore_errors: yes
